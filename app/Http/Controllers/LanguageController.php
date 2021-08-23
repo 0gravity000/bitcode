@@ -27,7 +27,7 @@ class LanguageController extends Controller
      */
     public function create()
     {
-        //
+        return view('language_create');
     }
 
     /**
@@ -38,7 +38,16 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        if ($request->btn == "reg") {
+            $validatedData = $request->validate([
+                'lang' => 'required|unique:languages,name',
+            ]);
+            $language = new Language;
+            $language->name = $request->lang;
+            $language->save();
+        } 
+        return redirect('/language');
     }
 
     /**

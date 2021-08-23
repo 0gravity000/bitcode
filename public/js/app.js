@@ -37722,7 +37722,11 @@ var staticRenderFns = [
                     staticClass: "dropdown-item",
                     attrs: { href: "/language" }
                   },
-                  [_vm._v("\n                言語の一覧を表示\n            ")]
+                  [
+                    _vm._v(
+                      "\n                プログラミング言語の管理\n            "
+                    )
+                  ]
                 )
               ]
             )

@@ -8,7 +8,7 @@
             
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown-sub">
                 <a class="dropdown-item" href="/language">
-                    言語の一覧を表示
+                    プログラミング言語の管理
                 </a>
             </div>
         </li>

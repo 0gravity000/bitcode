@@ -23,3 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/main', 'MainController@index')->name('main');
 
 Route::get('/language', 'LanguageController@index');
+Route::get('/language/create', 'LanguageController@create');
+Route::post('/language/store', 'LanguageController@store');

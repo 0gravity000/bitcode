@@ -31,25 +31,18 @@
             </div>
             @endif
 
-            <a href="/language/create">新規作成</a>
-            <table class="table">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">プログラミング言語</th>
-                <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($languages as $language)
-                <tr>
-                <th scope="row">{{ $language->id }}</th>
-                <td><a href="/language/show/{{ $language->name }}">{{ $language->name }}</a></td>
-                <td><a href="#">削除</a></td>
-                </tr>
-                @endforeach
-            </tbody>
-            </table>
+            <form method="POST" action="/language/update">
+                @csrf
+                <div class="mb-3">
+                    <label for="language" class="form-label">プログラミング言語名</label>
+                    <input type="text" class="form-control" name="lang" value="{{ $language->name }}">
+                    <div class="form-text">プログラミング言語名を入力してください</div>
+                </div>
+                <input type="hidden" class="form-control" name="id" value="{{ $language->id }}">
+                <button type="submit" class="btn btn-primary" name="btn" value="back">戻る</button>
+                <button type="submit" class="btn btn-primary" name="btn" value="update">更新</button>
+            </form>
+
         </div> <!-- col -->
     </div> <!-- row -->
 </div>  <!-- container -->

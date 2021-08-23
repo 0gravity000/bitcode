@@ -6,6 +6,7 @@ use App\Language;
 use Illuminate\Http\Request;
 
 use App\Tag;
+use Illuminate\Validation\Rule;
 
 class LanguageController extends Controller
 {
@@ -53,12 +54,14 @@ class LanguageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Language  $language
+     * @param  $name
      * @return \Illuminate\Http\Response
      */
-    public function show(Language $language)
+    public function show($name)
     {
-        //
+        //dd($name);
+        $language = Language::where('name', $name)->first();
+        return view('language_show', compact('language'));
     }
 
     /**
@@ -76,12 +79,21 @@ class LanguageController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Language  $language
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Language $language)
+    public function update(Request $request)
     {
-        //
+        //dd($request);
+        if ($request->btn == "update") {
+            $validatedData = $request->validate([
+                'lang' => 'required|unique:languages,name',
+                    //Rule::unique('languages','name')->ignore($request->id),
+            ]);
+            $language = Language::where('id', $request->id)->first();
+            $language->name = $request->lang;
+            $language->save();
+        } 
+        return redirect('/language');
     }
 
     /**

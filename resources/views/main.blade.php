@@ -18,7 +18,15 @@
     <div class="row">
         <div class="col-3">
         <!-- leftsidebar -->
-            サイドバー
+            <p>言語</p>
+            @foreach ($languages as $language)
+                <a href="#">{{ $language->name }}</a>
+            @endforeach
+            <hr>
+            <p>タグ</p>
+            @foreach ($tags as $tag)
+                <a href="#">{{ $tag->name }}</a>
+            @endforeach
         </div> <!-- col -->
         <div class="col">
         <!-- main content -->

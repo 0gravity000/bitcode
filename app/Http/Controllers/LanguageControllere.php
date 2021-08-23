@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Language;
-use App\Tag;
 
-class MainController extends Controller
+class LanguageControllere extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +13,7 @@ class MainController extends Controller
      */
     public function index()
     {
-        $languages = Language::all();
-        $tags = Tag::all();
-        return view('main', compact('languages', 'tags'));
+        //
     }
 
     /**

@@ -45,11 +45,12 @@
                 <tr>
                 <th scope="row">{{ $language->id }}</th>
                 <td><a href="/language/show/{{ $language->name }}">{{ $language->name }}</a></td>
-                <td><a href="#">削除</a></td>
+                <td><a href="/language/destroy/{{ $language->name }}">削除</a></td>
                 </tr>
                 @endforeach
             </tbody>
             </table>
+
         </div> <!-- col -->
     </div> <!-- row -->
 </div>  <!-- container -->

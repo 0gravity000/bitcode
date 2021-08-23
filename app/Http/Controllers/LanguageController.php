@@ -99,11 +99,15 @@ class LanguageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Language  $language
+     * @param  $name
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Language $language)
+    public function destroy($name)
     {
-        //
+        //dd($name);
+        $language = Language::where('name', $name)->first();
+        //dd($language);
+        $language->delete();
+        return redirect('/language');
     }
 }

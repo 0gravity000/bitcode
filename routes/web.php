@@ -27,3 +27,4 @@ Route::get('/language/create', 'LanguageController@create');
 Route::post('/language/store', 'LanguageController@store');
 Route::get('/language/show/{name}', 'LanguageController@show');
 Route::post('/language/update', 'LanguageController@update');
+Route::get('/language/destroy/{name}', 'LanguageController@destroy');

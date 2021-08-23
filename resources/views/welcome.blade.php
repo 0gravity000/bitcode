@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="#">ここをクリック！！</a>
+                    <a href="/main">ここをクリック！！</a>
                 </div>
             </div>
         </div>

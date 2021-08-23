@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Language;
 use Illuminate\Http\Request;
 
+use App\Tag;
+
 class LanguageController extends Controller
 {
     /**
@@ -14,7 +16,8 @@ class LanguageController extends Controller
      */
     public function index()
     {
-        //
+        $languages = Language::all();
+        return view('language', compact('languages'));
     }
 
     /**

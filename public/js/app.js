@@ -37718,15 +37718,8 @@ var staticRenderFns = [
               [
                 _c(
                   "a",
-                  {
-                    staticClass: "dropdown-item",
-                    attrs: { href: "/language" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                プログラミング言語の管理\n            "
-                    )
-                  ]
+                  { staticClass: "dropdown-item", attrs: { href: "/tag" } },
+                  [_vm._v("\n                タグの管理\n            ")]
                 )
               ]
             )

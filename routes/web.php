@@ -29,4 +29,10 @@ Route::get('/language/show/{name}', 'LanguageController@show');
 Route::post('/language/update', 'LanguageController@update');
 Route::get('/language/destroy/{name}', 'LanguageController@destroy');
 
-Route::get('/language', 'LanguageController@index');
+Route::get('/tag', 'TagController@index');
+Route::get('/tag/create', 'TagController@create');
+Route::post('/tag/store', 'TagController@store');
+Route::get('/tag/show/{name}', 'TagController@show');
+Route::post('/tag/update', 'TagController@update');
+Route::get('/tag/destroy/{name}', 'TagController@destroy');
+

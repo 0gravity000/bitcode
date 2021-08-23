@@ -14,7 +14,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::all();
+        return view('tag', compact('tags'));
     }
 
     /**
@@ -24,7 +25,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('tag_create');
     }
 
     /**
@@ -35,18 +36,29 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        if ($request->btn == "reg") {
+            $validatedData = $request->validate([
+                'tag' => 'required|unique:tags,name',
+            ]);
+            $tag = new Tag;
+            $tag->name = $request->tag;
+            $tag->save();
+        } 
+        return redirect('/tag');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Tag  $tag
+     * @param  $name
      * @return \Illuminate\Http\Response
      */
-    public function show(Tag $tag)
+    public function show($name)
     {
-        //
+        //dd($name);
+        $tag = Tag::where('name', $name)->first();
+        return view('tag_show', compact('tag'));
     }
 
     /**
@@ -64,22 +76,35 @@ class TagController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tag $tag)
+    public function update(Request $request)
     {
-        //
+        //dd($request);
+        if ($request->btn == "update") {
+            $validatedData = $request->validate([
+                'tag' => 'required|unique:tags,name',
+                    //Rule::unique('tags','name')->ignore($request->id),
+            ]);
+            $language = Tag::where('id', $request->id)->first();
+            $language->name = $request->tag;
+            $language->save();
+        } 
+        return redirect('/tag');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Tag  $tag
+     * @param  $name
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tag $tag)
+    public function destroy($name)
     {
-        //
+        //dd($name);
+        $tag = Tag::where('name', $name)->first();
+        //dd($tag);
+        $tag->delete();
+        return redirect('/tag');
     }
 }

@@ -12,6 +12,9 @@
                 <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
+            @if ( Auth::user()->name == 'admin')
+            <admin-navi></admin-navi>
+            @endif
         </nav>
         </div> <!-- col -->
     </div> <!-- row -->
@@ -22,6 +25,7 @@
                 <tr>
                 <th scope="col">#</th>
                 <th scope="col">プログラミング言語</th>
+                <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +33,7 @@
                 <tr>
                 <th scope="row">{{ $language->id }}</th>
                 <td><a href="#">{{ $language->name }}</a></td>
+                <td><a href="#">削除</a></td>
                 </tr>
                 @endforeach
             </tbody>

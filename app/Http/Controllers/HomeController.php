@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Language;
 use App\Tag;
 use Illuminate\Support\Facades\Auth;
+use App\Post;
 
 class HomeController extends Controller
 {
@@ -27,8 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $languages = Language::all();
+        $posts = Post::all();
         $tags = Tag::all();
-        return view('home', compact('languages', 'tags'));
+        return view('home', compact('posts', 'tags'));
     }
 }

@@ -36,3 +36,5 @@ Route::get('/tag/show/{name}', 'TagController@show');
 Route::post('/tag/update', 'TagController@update');
 Route::get('/tag/destroy/{name}', 'TagController@destroy');
 
+Route::get('/post/create', 'PostController@create');
+Route::post('/post/store', 'PostController@store');

@@ -38,21 +38,8 @@
             @endforeach
         </div> <!-- col -->
         <div class="col">
-        <!-- main content -->
-            @foreach ($posts as $post)
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $post->title }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">
-                        @foreach ($post->tags as $tag)
-                        {{ $tag->name }}
-                        @endforeach
-                    </h6>
-                    <p class="card-text">{{ $post->code }}</p>
-                    <a href="#" class="card-link">もっと見る</a>
-                </div>
-            </div>
-            @endforeach
+            <!-- main content -->
+            <post :posts={{$posts}}></post>
         </div> <!-- col -->
     </div> <!-- row -->
 </div>  <!-- container -->

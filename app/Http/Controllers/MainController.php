@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Language;
 use App\Tag;
+use App\Post;
 
 class MainController extends Controller
 {
@@ -15,9 +16,9 @@ class MainController extends Controller
      */
     public function index()
     {
-        $languages = Language::all();
+        $posts = Post::all();
         $tags = Tag::all();
-        return view('main', compact('languages', 'tags'));
+        return view('main', compact('posts', 'tags'));
     }
 
     /**

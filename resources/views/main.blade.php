@@ -24,8 +24,8 @@
             @endforeach
         </div> <!-- col -->
         <div class="col">
-        <!-- main content -->
-            コンテンツ
+            <!-- main content -->
+            <post :posts={{$posts}}></post>
         </div> <!-- col -->
     </div> <!-- row -->
 </div>  <!-- container -->

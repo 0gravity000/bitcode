@@ -2070,10 +2070,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     posts: {
       required: true
+    }
+  },
+  methods: {
+    //phpのhtml_entity_decode() もどきの処理
+    //エンコードされたCharacter references (文字参照) HTMLエンティティをデコードする
+    encode_htmlEntities: function encode_htmlEntities(text) {
+      var entities = [['amp', '&'], ['apos', '\''], ['#039', '\''], ['lt', '<'], ['gt', '>'], ['#032', ' ']];
+
+      for (var i = 0, max = entities.length; i < max; i++) {
+        text = text.replace('&quot;', '"').replace(new RegExp('&' + entities[i][0] + ';', 'g'), entities[i][1]);
+      }
+
+      return text;
     }
   },
   mounted: function mounted() {
@@ -37922,7 +37937,9 @@ var render = function() {
     _vm._l(_vm.posts, function(post) {
       return _c("div", { key: post.id }, [
         _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(post.title))]),
+          _c("h5", { staticClass: "card-title" }, [
+            _vm._v(_vm._s(_vm.encode_htmlEntities(post.title)))
+          ]),
           _vm._v(" "),
           _c(
             "h6",
@@ -37937,14 +37954,20 @@ var render = function() {
             0
           ),
           _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(post.code))]),
-          _vm._v(" "),
           _c("p", { staticClass: "card-text" }, [
-            _vm._v(_vm._s(post.user.name))
+            _vm._v(
+              "\n                " +
+                _vm._s(_vm.encode_htmlEntities(post.code)) +
+                "\n        "
+            )
           ]),
           _vm._v(" "),
           _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
             _vm._v("もっと見る")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [
+            _vm._v(_vm._s(post.user.name))
           ])
         ])
       ])

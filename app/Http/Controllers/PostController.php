@@ -57,7 +57,7 @@ class PostController extends Controller
             $tags = Tag::all();
             foreach ($tags as $tag) {
                 if ($request->has('Checkbox'.$tag->id)) {
-                    var_dump($tag->id);
+                    //var_dump($tag->id);
                     DB::table('post_tag')->insert(
                         [
                             'post_id' => $post->id,

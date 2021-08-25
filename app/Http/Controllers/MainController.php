@@ -17,6 +17,14 @@ class MainController extends Controller
     public function index()
     {
         $posts = Post::with(['tags', 'user'])->get();
+        //Character references (文字参照) HTMLエンティティに変換
+        foreach ($posts as $post) {
+            $post->title = htmlentities($post->title, ENT_QUOTES, 'UTF-8'); //名前付きエンティティを持つ文字をHTMLエンティティに変換
+            $post->title = str_replace(" ", "&#032;", $post->title);   //半角スペースをHTMLエンティティに変換
+            $post->code = htmlentities($post->code, ENT_QUOTES, 'UTF-8');   //名前付きエンティティを持つ文字をHTMLエンティティに変換
+            $post->code = str_replace(" ", "&#032;", $post->code);   //半角スペースをHTMLエンティティに変換
+        }
+        //dd($posts);
         $tags = Tag::all();
         return view('main', compact('posts', 'tags'));
     }

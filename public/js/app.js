@@ -2069,6 +2069,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     posts: {
@@ -37937,6 +37938,10 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(post.code))]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [
+            _vm._v(_vm._s(post.user.name))
+          ]),
           _vm._v(" "),
           _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
             _vm._v("もっと見る")

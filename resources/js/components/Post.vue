@@ -10,6 +10,7 @@
                 </span>
             </h6>
             <p class="card-text">{{ post.code }}</p>
+            <p class="card-text">{{ post.user.name }}</p>
             <a href="#" class="card-link">もっと見る</a>
         </div>
         </div>

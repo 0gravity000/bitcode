@@ -1,11 +1,10 @@
 
 <template>
     <div class="py-2">
-    <div v-for="post in posts" :key="post.id">
         <div class="card shadow p-2 mb-3 rounded">
         <div class="card-body">
             <h5 class="card-title">
-                <a :href="'/post/show/'+encode_htmlEntities(post.title)">{{ encode_htmlEntities(post.title) }}</a>
+                {{ encode_htmlEntities(post.title) }}
             </h5>
             <h6 class="card-subtitle mb-2 text-muted">
                 <span v-for="tag in post.tags" :key="tag.id">
@@ -21,7 +20,6 @@
         </div>
         </div>
     </div>
-    </div>
 </template>
 
 <script>
@@ -29,7 +27,7 @@
 
     export default {
         props: {
-            posts: {
+            post: {
                 required: true
             },
             authuserid: {

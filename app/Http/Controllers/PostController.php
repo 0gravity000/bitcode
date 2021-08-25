@@ -76,12 +76,21 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  $title
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($title)
     {
-        //
+        //dd($title);
+        $title = html_entity_decode($title, ENT_QUOTES);    //htmlエンティティのデコード
+        $post = Post::where('title', $title)->with(['tags', 'user'])->first();
+        $post->title = htmlentities($post->title, ENT_QUOTES, 'UTF-8'); //名前付きエンティティを持つ文字をHTMLエンティティに変換
+        $post->title = str_replace(" ", "&#032;", $post->title);   //半角スペースをHTMLエンティティに変換
+        $post->code = htmlentities($post->code, ENT_QUOTES, 'UTF-8');   //名前付きエンティティを持つ文字をHTMLエンティティに変換
+        $post->code = str_replace(" ", "&#032;", $post->code);   //半角スペースをHTMLエンティティに変換
+        //dd($post);
+        $tags = Tag::OrderBy('name', 'asc')->get();
+        return view('post_show', compact('post', 'tags'));
     }
 
     /**

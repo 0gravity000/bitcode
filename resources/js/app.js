@@ -23,6 +23,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('admin-navi', require('./components/AdminNavi.vue').default);
 Vue.component('admin-tag-navi', require('./components/AdminTagNavi.vue').default);
 Vue.component('post', require('./components/Post.vue').default);
+Vue.component('post-show', require('./components/PostShow.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

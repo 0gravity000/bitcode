@@ -25,6 +25,16 @@ Vue.component('admin-tag-navi', require('./components/AdminTagNavi.vue').default
 Vue.component('post', require('./components/Post.vue').default);
 Vue.component('post-show', require('./components/PostShow.vue').default);
 
+//highlight-vue.js
+Vue.use(hljsVuePlugin);
+
+//import VueHighlightJS from 'vue-highlight.js';
+// Highlight.js languages (All languages)
+//import 'vue-highlight.js/lib/allLanguages'
+// Import Highlight.js theme    https://highlightjs.org/static/demo/
+//import 'highlight.js/styles/default.css';
+//Vue.use(VueHighlightJS);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

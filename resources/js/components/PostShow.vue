@@ -12,7 +12,8 @@
                 </span>
             </h6>
             <p class="card-text">
-                    {{ encode_htmlEntities(post.code) }}
+                <highlightjs lang="html" :code="encode_htmlEntities(post.code)">
+                </highlightjs>
             </p>
             <p class="card-text">{{ post.user.name }} ｜ updated at {{ formatDate(post.updated_at) }}</p>
             <a v-if="authuserid === post.user.id" href="#" class="card-link">編集</a>

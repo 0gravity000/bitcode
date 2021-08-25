@@ -15,6 +15,10 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- highlight -->
+    <link rel="stylesheet" href="{{ asset('css/github-dark.min.css') }}">
+    <script src="{{ asset('js/highlight.min.js') }}"></script>
+    <script src="{{ asset('js/highlightjs-vue.min.js') }}"></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

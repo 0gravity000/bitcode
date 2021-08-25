@@ -2150,6 +2150,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -59701,13 +59702,19 @@ var render = function() {
           0
         ),
         _vm._v(" "),
-        _c("p", { staticClass: "card-text" }, [
-          _vm._v(
-            "\n                " +
-              _vm._s(_vm.encode_htmlEntities(_vm.post.code)) +
-              "\n        "
-          )
-        ]),
+        _c(
+          "p",
+          { staticClass: "card-text" },
+          [
+            _c("highlightjs", {
+              attrs: {
+                lang: "html",
+                code: _vm.encode_htmlEntities(_vm.post.code)
+              }
+            })
+          ],
+          1
+        ),
         _vm._v(" "),
         _c("p", { staticClass: "card-text" }, [
           _vm._v(
@@ -71979,7 +71986,15 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 Vue.component('admin-navi', __webpack_require__(/*! ./components/AdminNavi.vue */ "./resources/js/components/AdminNavi.vue")["default"]);
 Vue.component('admin-tag-navi', __webpack_require__(/*! ./components/AdminTagNavi.vue */ "./resources/js/components/AdminTagNavi.vue")["default"]);
 Vue.component('post', __webpack_require__(/*! ./components/Post.vue */ "./resources/js/components/Post.vue")["default"]);
-Vue.component('post-show', __webpack_require__(/*! ./components/PostShow.vue */ "./resources/js/components/PostShow.vue")["default"]);
+Vue.component('post-show', __webpack_require__(/*! ./components/PostShow.vue */ "./resources/js/components/PostShow.vue")["default"]); //highlight-vue.js
+
+Vue.use(hljsVuePlugin); //import VueHighlightJS from 'vue-highlight.js';
+// Highlight.js languages (All languages)
+//import 'vue-highlight.js/lib/allLanguages'
+// Import Highlight.js theme    https://highlightjs.org/static/demo/
+//import 'highlight.js/styles/default.css';
+//Vue.use(VueHighlightJS);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

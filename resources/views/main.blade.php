@@ -24,7 +24,6 @@
             @endforeach
         </div> <!-- col -->
         <div class="col">
-<<<<<<< HEAD
         <!-- main content -->
             @foreach ($posts as $post)
             <div class="card">
@@ -40,10 +39,6 @@
                 </div>
             </div>
             @endforeach
-=======
-            <!-- main content -->
-            <post :posts={{$posts}}></post>
->>>>>>> c9e5fd8dcacdd7aac5d674f861328059b0d53212
         </div> <!-- col -->
     </div> <!-- row -->
 </div>  <!-- container -->

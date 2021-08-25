@@ -2074,10 +2074,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     posts: {
+      required: true
+    },
+    authuserid: {
+      type: Number,
       required: true
     }
   },
@@ -59513,45 +59519,55 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "card" },
+    { staticClass: "py-2" },
     _vm._l(_vm.posts, function(post) {
       return _c("div", { key: post.id }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [
-            _vm._v(_vm._s(_vm.encode_htmlEntities(post.title)))
-          ]),
-          _vm._v(" "),
-          _c(
-            "h6",
-            { staticClass: "card-subtitle mb-2 text-muted" },
-            _vm._l(post.tags, function(tag) {
-              return _c("span", { key: tag.id }, [
-                _vm._v(
-                  "\n                " + _vm._s(tag.name) + "\n            "
-                )
-              ])
-            }),
-            0
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [
-            _vm._v(
-              "\n                " +
-                _vm._s(_vm.encode_htmlEntities(post.code)) +
-                "\n        "
-            )
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
-            _vm._v("もっと見る")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [
-            _vm._v(
-              _vm._s(post.user.name) +
-                " ｜ updated at " +
-                _vm._s(_vm.formatDate(post.updated_at))
-            )
+        _c("div", { staticClass: "card shadow p-2 mb-3 rounded" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h5", { staticClass: "card-title" }, [
+              _vm._v(_vm._s(_vm.encode_htmlEntities(post.title)))
+            ]),
+            _vm._v(" "),
+            _c(
+              "h6",
+              { staticClass: "card-subtitle mb-2 text-muted" },
+              _vm._l(post.tags, function(tag) {
+                return _c("span", { key: tag.id }, [
+                  _vm._v(
+                    "\n                " + _vm._s(tag.name) + "\n            "
+                  )
+                ])
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _vm._v(
+                "\n                " +
+                  _vm._s(_vm.encode_htmlEntities(post.code)) +
+                  "\n        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _vm._v(
+                _vm._s(post.user.name) +
+                  " ｜ updated at " +
+                  _vm._s(_vm.formatDate(post.updated_at))
+              )
+            ]),
+            _vm._v(" "),
+            _vm.authuserid === post.user.id
+              ? _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
+                  _vm._v("編集")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.authuserid === post.user.id
+              ? _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
+                  _vm._v("削除")
+                ])
+              : _vm._e()
           ])
         ])
       ])

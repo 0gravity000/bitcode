@@ -39,7 +39,7 @@
         </div> <!-- col -->
         <div class="col">
             <!-- main content -->
-            <post :posts={{$posts}}></post>
+            <post :posts={{$posts}} :authuserid={{Auth::user()->id}}></post>
         </div> <!-- col -->
     </div> <!-- row -->
 </div>  <!-- container -->

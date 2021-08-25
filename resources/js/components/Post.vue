@@ -1,7 +1,8 @@
 
 <template>
-    <div class="card">
-        <div v-for="post in posts" :key="post.id">
+    <div class="py-2">
+    <div v-for="post in posts" :key="post.id">
+        <div class="card shadow p-2 mb-3 rounded">
         <div class="card-body">
             <h5 class="card-title">{{ encode_htmlEntities(post.title) }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">
@@ -12,12 +13,13 @@
             <p class="card-text">
                     {{ encode_htmlEntities(post.code) }}
             </p>
-            <a href="#" class="card-link">もっと見る</a>
             <p class="card-text">{{ post.user.name }} ｜ updated at {{ formatDate(post.updated_at) }}</p>
+            <a v-if="authuserid === post.user.id" href="#" class="card-link">編集</a>
+            <a v-if="authuserid === post.user.id" href="#" class="card-link">削除</a>
         </div>
         </div>
     </div>
-
+    </div>
 </template>
 
 <script>
@@ -26,6 +28,10 @@
     export default {
         props: {
             posts: {
+                required: true
+            },
+            authuserid: {
+                type: Number,
                 required: true
             }
         },

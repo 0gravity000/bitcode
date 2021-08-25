@@ -16,7 +16,7 @@ class MainController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::with('tags')->get();
         $tags = Tag::all();
         return view('main', compact('posts', 'tags'));
     }

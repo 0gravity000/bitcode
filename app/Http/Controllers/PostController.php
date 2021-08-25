@@ -62,6 +62,8 @@ class PostController extends Controller
                         [
                             'post_id' => $post->id,
                             'tag_id' => $tag->id,
+                            'created_at' => now(),
+                            'updated_at' => now(),
                         ]
                     );
                 }

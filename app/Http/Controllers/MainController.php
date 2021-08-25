@@ -16,7 +16,7 @@ class MainController extends Controller
      */
     public function index()
     {
-        $posts = Post::with(['tags', 'user'])->get();
+        $posts = Post::with(['tags', 'user'])->orderBy('updated_at', 'desc')->get();
         //Character references (文字参照) HTMLエンティティに変換
         foreach ($posts as $post) {
             $post->title = htmlentities($post->title, ENT_QUOTES, 'UTF-8'); //名前付きエンティティを持つ文字をHTMLエンティティに変換

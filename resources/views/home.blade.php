@@ -16,7 +16,7 @@
                     <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="/post/create">
-                            <button type="button" class="btn btn-outline-primary">投稿する</button>
+                            <button type="button" class="btn btn-primary">投稿する</button>
                         </a>
                     </li>
                     </ul>

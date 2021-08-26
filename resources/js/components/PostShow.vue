@@ -1,31 +1,40 @@
 
 <template>
-    <div class="py-2">
-        <div class="card shadow p-2 mb-3 rounded">
-        <div class="card-body">
-            <h5 class="card-title">
+    <div class="py-3">
+            <h2>
                 {{ encode_htmlEntities(post.title) }}
-            </h5>
-            <h6 class="card-subtitle mb-2 text-muted">
+            </h2>
+            <h6 class="my-3">
                 <span v-for="tag in post.tags" :key="tag.id">
+                    <button type="button" class="btn btn-outline-success mr-2">
                     {{ tag.name }}
+                    </button>
                 </span>
             </h6>
-            <p class="card-text">
+            <p>
                 <highlightjs lang="html" :code="encode_htmlEntities(post.code)">
                 </highlightjs>
             </p>
+            <h3>備考</h3>
+            <p>
+                {{ post.note1 }}
+            </p>
+            <p>
+                {{ post.note2 }}
+            </p>
+            <p>
+                {{ post.note3 }}
+            </p>
+
             <p class="card-text">{{ post.user.name }} ｜ updated at {{ formatDate(post.updated_at) }}</p>
-            <button v-if="authuserid === post.user.id" type="button" class="btn btn-primary"
+            <button v-if="authuserid === post.user.id" class="btn btn-primary" type="button"
              data-toggle="modal" data-target="#exampleModal">
                 編集
             </button>  
-            <button v-if="authuserid === post.user.id" type="button" class="btn btn-primary"
+            <button v-if="authuserid === post.user.id" class="btn btn-primary" type="button"
              data-toggle="modal" data-target="#exampleModal" @click="store_post(post)">
                 削除
             </button>  
-        </div>
-        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

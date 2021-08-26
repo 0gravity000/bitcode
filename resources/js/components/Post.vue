@@ -7,20 +7,22 @@
             <h5 class="card-title">
                 <a :href="'/post/show/'+encode_htmlEntities(post.title)">{{ encode_htmlEntities(post.title) }}</a>
             </h5>
-            <h6 class="card-subtitle mb-2 text-muted">
+            <h6 class="card-subtitle mb-1">
                 <span v-for="tag in post.tags" :key="tag.id">
+                    <button type="button" class="btn btn-outline-success mr-2">
                     {{ tag.name }}
+                    </button>
                 </span>
             </h6>
             <p class="card-text">
                     {{ encode_htmlEntities(post.code) }}
             </p>
             <p class="card-text">{{ post.user.name }} ｜ updated at {{ formatDate(post.updated_at) }}</p>
-            <button v-if="authuserid === post.user.id" type="button" class="btn btn-primary"
+            <button v-if="authuserid === post.user.id" class="btn btn-primary" type="button" 
              data-toggle="modal" data-target="#exampleModal">
                 編集
             </button>  
-            <button v-if="authuserid === post.user.id" type="button" class="btn btn-primary"
+            <button v-if="authuserid === post.user.id" class="btn btn-primary" type="button" 
              data-toggle="modal" data-target="#exampleModal" @click="store_post(post)">
                 削除
             </button>  

@@ -2106,6 +2106,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2164,6 +2166,15 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -59689,11 +59700,22 @@ var render = function() {
             _vm._v(" "),
             _c(
               "h6",
-              { staticClass: "card-subtitle mb-2 text-muted" },
+              { staticClass: "card-subtitle mb-1" },
               _vm._l(post.tags, function(tag) {
                 return _c("span", { key: tag.id }, [
-                  _vm._v(
-                    "\n                " + _vm._s(tag.name) + "\n            "
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-success mr-2",
+                      attrs: { type: "button" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(tag.name) +
+                          "\n                "
+                      )
+                    ]
                   )
                 ])
               }),
@@ -59850,86 +59872,97 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "py-2" }, [
-    _c("div", { staticClass: "card shadow p-2 mb-3 rounded" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("h5", { staticClass: "card-title" }, [
-          _vm._v(
-            "\n            " +
-              _vm._s(_vm.encode_htmlEntities(_vm.post.title)) +
-              "\n        "
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "h6",
-          { staticClass: "card-subtitle mb-2 text-muted" },
-          _vm._l(_vm.post.tags, function(tag) {
-            return _c("span", { key: tag.id }, [
-              _vm._v("\n                " + _vm._s(tag.name) + "\n            ")
-            ])
-          }),
-          0
-        ),
-        _vm._v(" "),
-        _c(
-          "p",
-          { staticClass: "card-text" },
-          [
-            _c("highlightjs", {
-              attrs: {
-                lang: "html",
-                code: _vm.encode_htmlEntities(_vm.post.code)
-              }
-            })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("p", { staticClass: "card-text" }, [
-          _vm._v(
-            _vm._s(_vm.post.user.name) +
-              " ｜ updated at " +
-              _vm._s(_vm.formatDate(_vm.post.updated_at))
-          )
-        ]),
-        _vm._v(" "),
-        _vm.authuserid === _vm.post.user.id
-          ? _c(
-              "button",
-              {
-                staticClass: "btn btn-primary",
-                attrs: {
-                  type: "button",
-                  "data-toggle": "modal",
-                  "data-target": "#exampleModal"
-                }
-              },
-              [_vm._v("\n            編集\n        ")]
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.authuserid === _vm.post.user.id
-          ? _c(
-              "button",
-              {
-                staticClass: "btn btn-primary",
-                attrs: {
-                  type: "button",
-                  "data-toggle": "modal",
-                  "data-target": "#exampleModal"
-                },
-                on: {
-                  click: function($event) {
-                    return _vm.store_post(_vm.post)
-                  }
-                }
-              },
-              [_vm._v("\n            削除\n        ")]
-            )
-          : _vm._e()
-      ])
+  return _c("div", { staticClass: "py-3" }, [
+    _c("h2", [
+      _vm._v(
+        "\n            " +
+          _vm._s(_vm.encode_htmlEntities(_vm.post.title)) +
+          "\n        "
+      )
     ]),
+    _vm._v(" "),
+    _c(
+      "h6",
+      { staticClass: "my-3" },
+      _vm._l(_vm.post.tags, function(tag) {
+        return _c("span", { key: tag.id }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-success mr-2",
+              attrs: { type: "button" }
+            },
+            [
+              _vm._v(
+                "\n                " + _vm._s(tag.name) + "\n                "
+              )
+            ]
+          )
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "p",
+      [
+        _c("highlightjs", {
+          attrs: { lang: "html", code: _vm.encode_htmlEntities(_vm.post.code) }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("h3", [_vm._v("備考")]),
+    _vm._v(" "),
+    _c("p", [_vm._v("\n            " + _vm._s(_vm.post.note1) + "\n        ")]),
+    _vm._v(" "),
+    _c("p", [_vm._v("\n            " + _vm._s(_vm.post.note2) + "\n        ")]),
+    _vm._v(" "),
+    _c("p", [_vm._v("\n            " + _vm._s(_vm.post.note3) + "\n        ")]),
+    _vm._v(" "),
+    _c("p", { staticClass: "card-text" }, [
+      _vm._v(
+        _vm._s(_vm.post.user.name) +
+          " ｜ updated at " +
+          _vm._s(_vm.formatDate(_vm.post.updated_at))
+      )
+    ]),
+    _vm._v(" "),
+    _vm.authuserid === _vm.post.user.id
+      ? _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: {
+              type: "button",
+              "data-toggle": "modal",
+              "data-target": "#exampleModal"
+            }
+          },
+          [_vm._v("\n            編集\n        ")]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.authuserid === _vm.post.user.id
+      ? _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: {
+              type: "button",
+              "data-toggle": "modal",
+              "data-target": "#exampleModal"
+            },
+            on: {
+              click: function($event) {
+                return _vm.store_post(_vm.post)
+              }
+            }
+          },
+          [_vm._v("\n            削除\n        ")]
+        )
+      : _vm._e(),
     _vm._v(" "),
     _c(
       "div",

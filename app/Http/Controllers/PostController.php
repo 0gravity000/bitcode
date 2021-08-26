@@ -119,11 +119,17 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Post  $post
+     * @param  $title
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($title)
     {
-        //
+        //dd($title);
+        $post = Post::where('title', $title)->first();
+        //dd($post);
+        //post_tagテーブルの該当post_idを削除
+        DB::table('post_tag')->where('post_id', $post->id)->delete();
+        $post->delete();
+        return redirect('/home');
     }
 }

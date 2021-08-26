@@ -2078,6 +2078,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2090,9 +2118,19 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   data: function data() {
-    return {};
+    return {
+      post: '',
+      post_title: ''
+    };
   },
   methods: {
+    store_post: function store_post(post) {
+      this.post = post;
+    },
+    post_destroy: function post_destroy() {
+      this.post_title = this.encode_htmlEntities(this.post.title);
+      location.href = "/post/destroy/" + this.post_title;
+    },
     formatDate: function formatDate(date) {
       return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).format("YYYY/MM/DD hh:mm:ss");
     },
@@ -2151,6 +2189,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2163,9 +2229,19 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   data: function data() {
-    return {};
+    return {
+      post: '',
+      post_title: ''
+    };
   },
   methods: {
+    store_post: function store_post(post) {
+      this.post = post;
+    },
+    post_destroy: function post_destroy() {
+      this.post_title = this.encode_htmlEntities(this.post.title);
+      location.href = "/post/destroy/" + this.post_title;
+    },
     formatDate: function formatDate(date) {
       return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).format("YYYY/MM/DD hh:mm:ss");
     },
@@ -59641,24 +59717,118 @@ var render = function() {
             ]),
             _vm._v(" "),
             _vm.authuserid === post.user.id
-              ? _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
-                  _vm._v("編集")
-                ])
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: {
+                      type: "button",
+                      "data-toggle": "modal",
+                      "data-target": "#exampleModal"
+                    }
+                  },
+                  [_vm._v("\n            編集\n        ")]
+                )
               : _vm._e(),
             _vm._v(" "),
             _vm.authuserid === post.user.id
-              ? _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
-                  _vm._v("削除")
-                ])
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: {
+                      type: "button",
+                      "data-toggle": "modal",
+                      "data-target": "#exampleModal"
+                    },
+                    on: {
+                      click: function($event) {
+                        return _vm.store_post(post)
+                      }
+                    }
+                  },
+                  [_vm._v("\n            削除\n        ")]
+                )
               : _vm._e()
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "exampleModal",
+              tabindex: "-1",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c("div", { staticClass: "modal-dialog" }, [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(0, true),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _vm._v("\n            この投稿を削除しますか？\n        ")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("いいえ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "button" },
+                      on: { click: _vm.post_destroy }
+                    },
+                    [_vm._v("はい")]
+                  )
+                ])
+              ])
+            ])
+          ]
+        )
       ])
     }),
     0
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("確認")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -59725,21 +59895,115 @@ var render = function() {
         ]),
         _vm._v(" "),
         _vm.authuserid === _vm.post.user.id
-          ? _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
-              _vm._v("編集")
-            ])
+          ? _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "modal",
+                  "data-target": "#exampleModal"
+                }
+              },
+              [_vm._v("\n            編集\n        ")]
+            )
           : _vm._e(),
         _vm._v(" "),
         _vm.authuserid === _vm.post.user.id
-          ? _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
-              _vm._v("削除")
-            ])
+          ? _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "modal",
+                  "data-target": "#exampleModal"
+                },
+                on: {
+                  click: function($event) {
+                    return _vm.store_post(_vm.post)
+                  }
+                }
+              },
+              [_vm._v("\n            削除\n        ")]
+            )
           : _vm._e()
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "exampleModal",
+          tabindex: "-1",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _vm._v("\n            この投稿を削除しますか？\n        ")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-dismiss": "modal" }
+                },
+                [_vm._v("いいえ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button" },
+                  on: { click: _vm.post_destroy }
+                },
+                [_vm._v("はい")]
+              )
+            ])
+          ])
+        ])
+      ]
+    )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("確認")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

@@ -86,9 +86,9 @@ class TagController extends Controller
                 'tag' => 'required|unique:tags,name',
                     //Rule::unique('tags','name')->ignore($request->id),
             ]);
-            $language = Tag::where('id', $request->id)->first();
-            $language->name = $request->tag;
-            $language->save();
+            $tag = Tag::where('id', $request->id)->first();
+            $tag->name = $request->tag;
+            $tag->save();
         } 
         return redirect('/tag');
     }

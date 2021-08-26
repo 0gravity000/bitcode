@@ -27,8 +27,7 @@
             </p>
 
             <p class="card-text">{{ post.user.name }} ｜ updated at {{ formatDate(post.updated_at) }}</p>
-            <button v-if="authuserid === post.user.id" class="btn btn-primary" type="button"
-             data-toggle="modal" data-target="#exampleModal">
+            <button v-if="authuserid === post.user.id" class="btn btn-primary" type="button" @click="post_edit(post)">
                 編集
             </button>  
             <button v-if="authuserid === post.user.id" class="btn btn-primary" type="button"
@@ -75,13 +74,17 @@
         },
         data: function() {
             return{
-                post: '',
                 post_title: '',
             }
         },        
         methods: {
             store_post: function(post) {
                 this.post = post;
+            },
+            post_edit: function(post) {
+                this.post = post;
+                this.post_title = this.encode_htmlEntities(this.post.title);
+                location.href= "/post/edit/"+this.post_title+"/2";
             },
             post_destroy: function() {
                 this.post_title = this.encode_htmlEntities(this.post.title);

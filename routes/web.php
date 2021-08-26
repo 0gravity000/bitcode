@@ -40,3 +40,5 @@ Route::get('/post/create', 'PostController@create');
 Route::post('/post/store', 'PostController@store');
 Route::get('/post/show/{title}', 'PostController@show');
 Route::get('/post/destroy/{title}', 'PostController@destroy');
+Route::get('/post/edit/{title}/{backid}', 'PostController@edit');
+Route::post('/post/update', 'PostController@update');

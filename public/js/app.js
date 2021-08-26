@@ -2107,7 +2107,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2128,6 +2127,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     store_post: function store_post(post) {
       this.post = post;
+    },
+    post_edit: function post_edit(post) {
+      this.post = post;
+      this.post_title = this.encode_htmlEntities(this.post.title);
+      location.href = "/post/edit/" + this.post_title + "/1";
     },
     post_destroy: function post_destroy() {
       this.post_title = this.encode_htmlEntities(this.post.title);
@@ -2227,7 +2231,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2241,13 +2244,17 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      post: '',
       post_title: ''
     };
   },
   methods: {
     store_post: function store_post(post) {
       this.post = post;
+    },
+    post_edit: function post_edit(post) {
+      this.post = post;
+      this.post_title = this.encode_htmlEntities(this.post.title);
+      location.href = "/post/edit/" + this.post_title + "/2";
     },
     post_destroy: function post_destroy() {
       this.post_title = this.encode_htmlEntities(this.post.title);
@@ -59743,10 +59750,11 @@ var render = function() {
                   "button",
                   {
                     staticClass: "btn btn-primary",
-                    attrs: {
-                      type: "button",
-                      "data-toggle": "modal",
-                      "data-target": "#exampleModal"
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.post_edit(post)
+                      }
                     }
                   },
                   [_vm._v("\n            編集\n        ")]
@@ -59934,10 +59942,11 @@ var render = function() {
           "button",
           {
             staticClass: "btn btn-primary",
-            attrs: {
-              type: "button",
-              "data-toggle": "modal",
-              "data-target": "#exampleModal"
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                return _vm.post_edit(_vm.post)
+              }
             }
           },
           [_vm._v("\n            編集\n        ")]

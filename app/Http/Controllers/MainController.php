@@ -25,7 +25,7 @@ class MainController extends Controller
             $post->code = str_replace(" ", "&#032;", $post->code);   //半角スペースをHTMLエンティティに変換
         }
         //dd($posts);
-        $tags = Tag::all();
+        $tags = Tag::orderBy('name', 'asc')->get();
         return view('main', compact('posts', 'tags'));
     }
 
@@ -53,12 +53,24 @@ class MainController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  $name
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($name)
     {
-        //
+        $tag = Tag::where('name', $name)->first();
+        $posts = $tag->posts;   //Tagモデルのposts()でwith(['tags', 'user'])->orderBy('updated_at', 'desc')
+        //dd($posts);
+        //Character references (文字参照) HTMLエンティティに変換
+        foreach ($posts as $post) {
+            $post->title = htmlentities($post->title, ENT_QUOTES, 'UTF-8'); //名前付きエンティティを持つ文字をHTMLエンティティに変換
+            $post->title = str_replace(" ", "&#032;", $post->title);   //半角スペースをHTMLエンティティに変換
+            $post->code = htmlentities($post->code, ENT_QUOTES, 'UTF-8');   //名前付きエンティティを持つ文字をHTMLエンティティに変換
+            $post->code = str_replace(" ", "&#032;", $post->code);   //半角スペースをHTMLエンティティに変換
+        }
+        //dd($posts);
+        $tags = Tag::orderBy('name', 'asc')->get();
+        return view('main', compact('posts', 'tags'));
     }
 
     /**

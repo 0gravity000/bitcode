@@ -20,7 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/{tag}', 'HomeController@show');
 Route::get('/main', 'MainController@index')->name('main');
+Route::get('/main/{tag}', 'MainController@show');
 
 Route::get('/language', 'LanguageController@index');
 Route::get('/language/create', 'LanguageController@create');

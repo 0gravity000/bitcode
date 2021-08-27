@@ -34,7 +34,9 @@
         <!-- leftsidebar -->
             <p>タグ</p>
             @foreach ($tags as $tag)
-                <a href="#">{{ $tag->name }}</a>
+                <button type="button" class="btn btn-outline-success my-1 mx-1">
+                <a href="/home/{{$tag->name}}">{{ $tag->name }}</a>
+                </button>
             @endforeach
         </div> <!-- col -->
         <div class="col">

@@ -29,7 +29,13 @@
         <!-- leftsidebar -->
             <p>タグ</p>
             @foreach ($tags as $tag)
-                <a href="#">{{ $tag->name }}</a>
+            <button type="button" class="btn btn-outline-success my-1 mx-1">
+                @auth
+                <a href="/home/{{$tag->name}}">{{ $tag->name }}</a>
+                @else
+                <a href="/main/{{$tag->name}}">{{ $tag->name }}</a>
+                @endauth
+            </button>
             @endforeach
         </div> <!-- col -->
         <div class="col">

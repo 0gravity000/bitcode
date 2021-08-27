@@ -7,15 +7,20 @@
         <!-- navibar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
+                @auth
                 <a class="navbar-brand" href="/home">ホームへ戻る</a>
+                @else
+                <a class="navbar-brand" href="/main">ホーム（ゲスト）へ戻る</a>
+                @endauth
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-
-            @if ( Auth::user()->name == 'admin')
-            <admin-navi></admin-navi>
-            @endif
+            @auth
+                @if ( Auth::user()->name == 'admin')
+                <admin-navi></admin-navi>
+                @endif
+            @endauth
         </nav>
         </div> <!-- col -->
     </div> <!-- row -->
@@ -29,7 +34,11 @@
         </div> <!-- col -->
         <div class="col">
             <!-- main content -->
+            @auth
             <post-show :post={{$post}} :authuserid={{Auth::user()->id}}></post-show>
+            @else
+            <post-show :post={{$post}} :authuserid="0"></post-show>
+            @endauth
         </div> <!-- col -->
     </div> <!-- row -->
 </div>  <!-- container -->

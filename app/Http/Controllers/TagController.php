@@ -14,8 +14,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::all();
-        return view('tag', compact('tags'));
+
     }
 
     /**
@@ -25,7 +24,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('tag_create');
+
     }
 
     /**
@@ -36,16 +35,7 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
-        if ($request->btn == "reg") {
-            $validatedData = $request->validate([
-                'tag' => 'required|unique:tags,name',
-            ]);
-            $tag = new Tag;
-            $tag->name = $request->tag;
-            $tag->save();
-        } 
-        return redirect('/tag');
+
     }
 
     /**
@@ -56,9 +46,7 @@ class TagController extends Controller
      */
     public function show($name)
     {
-        //dd($name);
-        $tag = Tag::where('name', $name)->first();
-        return view('tag_show', compact('tag'));
+
     }
 
     /**
@@ -80,17 +68,7 @@ class TagController extends Controller
      */
     public function update(Request $request)
     {
-        //dd($request);
-        if ($request->btn == "update") {
-            $validatedData = $request->validate([
-                'tag' => 'required|unique:tags,name',
-                    //Rule::unique('tags','name')->ignore($request->id),
-            ]);
-            $tag = Tag::where('id', $request->id)->first();
-            $tag->name = $request->tag;
-            $tag->save();
-        } 
-        return redirect('/tag');
+
     }
 
     /**
@@ -101,10 +79,6 @@ class TagController extends Controller
      */
     public function destroy($name)
     {
-        //dd($name);
-        $tag = Tag::where('name', $name)->first();
-        //dd($tag);
-        $tag->delete();
-        return redirect('/tag');
+
     }
 }

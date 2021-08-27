@@ -29,12 +29,12 @@ Route::get('/language/show/{name}', 'LanguageController@show');
 Route::post('/language/update', 'LanguageController@update');
 Route::get('/language/destroy/{name}', 'LanguageController@destroy');
 
-Route::get('/tag', 'TagController@index');
-Route::get('/tag/create', 'TagController@create');
-Route::post('/tag/store', 'TagController@store');
-Route::get('/tag/show/{name}', 'TagController@show');
-Route::post('/tag/update', 'TagController@update');
-Route::get('/tag/destroy/{name}', 'TagController@destroy');
+Route::get('/admin/tag', 'AdminController@index_tag');
+Route::get('/admin/tag/create', 'AdminController@create_tag');
+Route::post('/admin/tag/store', 'AdminController@store_tag');
+Route::get('/admin/tag/show/{name}', 'AdminController@show_tag');
+Route::post('/admin/tag/update', 'AdminController@update_tag');
+Route::get('/admin/tag/destroy/{name}', 'AdminController@destroy_tag');
 
 Route::get('/post/create', 'PostController@create');
 Route::post('/post/store', 'PostController@store');

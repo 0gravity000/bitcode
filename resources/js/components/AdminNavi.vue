@@ -7,7 +7,7 @@
             </a>
             
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown-sub">
-                <a class="dropdown-item" href="/tag">
+                <a class="dropdown-item" href="/admin/tag">
                     タグの管理
                 </a>
             </div>

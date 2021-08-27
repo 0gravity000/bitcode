@@ -59556,7 +59556,10 @@ var staticRenderFns = [
               [
                 _c(
                   "a",
-                  { staticClass: "dropdown-item", attrs: { href: "/tag" } },
+                  {
+                    staticClass: "dropdown-item",
+                    attrs: { href: "/admin/tag" }
+                  },
                   [_vm._v("\n                タグの管理\n            ")]
                 )
               ]

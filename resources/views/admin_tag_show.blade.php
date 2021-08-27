@@ -26,7 +26,7 @@
             </div>
             @endif
 
-            <form method="POST" action="/tag/update">
+            <form method="POST" action="/admin/tag/update">
                 @csrf
                 <div class="mb-3">
                     <label for="tag" class="form-label">タグ名</label>

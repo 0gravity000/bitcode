@@ -26,25 +26,16 @@
             </div>
             @endif
 
-            <a href="/tag/create">新規作成</a>
-            <table class="table">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">タグ</th>
-                <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($tags as $tag)
-                <tr>
-                <th scope="row">{{ $tag->id }}</th>
-                <td><a href="/tag/show/{{ $tag->name }}">{{ $tag->name }}</a></td>
-                <td><a href="/tag/destroy/{{ $tag->name }}">削除</a></td>
-                </tr>
-                @endforeach
-            </tbody>
-            </table>
+            <form method="POST" action="/admin/tag/store">
+                @csrf
+                <div class="mb-3">
+                    <label for="tag" class="form-label">タグ名</label>
+                    <input type="text" class="form-control" name="tag">
+                    <div class="form-text">タグ名を入力してください</div>
+                </div>
+                <button type="submit" class="btn btn-primary" name="btn" value="back">戻る</button>
+                <button type="submit" class="btn btn-primary" name="btn" value="reg">登録</button>
+            </form>
 
         </div> <!-- col -->
     </div> <!-- row -->

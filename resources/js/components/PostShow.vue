@@ -17,13 +17,13 @@
             </p>
             <h3>備考</h3>
             <p>
-                {{ post.note1 }}
+                {{ encode_htmlEntities(post.note1) }}
             </p>
             <p>
-                {{ post.note2 }}
+                {{ encode_htmlEntities(post.note2) }}
             </p>
             <p>
-                {{ post.note3 }}
+                {{ encode_htmlEntities(post.note3) }}
             </p>
 
             <p class="card-text">{{ post.user.name }} ｜ updated at {{ formatDate(post.updated_at) }}</p>

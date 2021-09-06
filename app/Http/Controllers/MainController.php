@@ -23,6 +23,12 @@ class MainController extends Controller
             $post->title = str_replace(" ", "&#032;", $post->title);   //半角スペースをHTMLエンティティに変換
             $post->code = htmlentities($post->code, ENT_QUOTES, 'UTF-8');   //名前付きエンティティを持つ文字をHTMLエンティティに変換
             $post->code = str_replace(" ", "&#032;", $post->code);   //半角スペースをHTMLエンティティに変換
+            $post->note1 = htmlentities($post->note1, ENT_QUOTES, 'UTF-8');   //名前付きエンティティを持つ文字をHTMLエンティティに変換
+            $post->note1 = str_replace(" ", "&#032;", $post->note1);   //半角スペースをHTMLエンティティに変換
+            $post->note2 = htmlentities($post->note2, ENT_QUOTES, 'UTF-8');   //名前付きエンティティを持つ文字をHTMLエンティティに変換
+            $post->note2 = str_replace(" ", "&#032;", $post->note2);   //半角スペースをHTMLエンティティに変換
+            $post->note3 = htmlentities($post->note3, ENT_QUOTES, 'UTF-8');   //名前付きエンティティを持つ文字をHTMLエンティティに変換
+            $post->note3 = str_replace(" ", "&#032;", $post->note3);   //半角スペースをHTMLエンティティに変換
         }
         //dd($posts);
         $tags = Tag::orderBy('name', 'asc')->get();
@@ -67,6 +73,12 @@ class MainController extends Controller
             $post->title = str_replace(" ", "&#032;", $post->title);   //半角スペースをHTMLエンティティに変換
             $post->code = htmlentities($post->code, ENT_QUOTES, 'UTF-8');   //名前付きエンティティを持つ文字をHTMLエンティティに変換
             $post->code = str_replace(" ", "&#032;", $post->code);   //半角スペースをHTMLエンティティに変換
+            $post->note1 = htmlentities($post->note1, ENT_QUOTES, 'UTF-8');   //名前付きエンティティを持つ文字をHTMLエンティティに変換
+            $post->note1 = str_replace(" ", "&#032;", $post->note1);   //半角スペースをHTMLエンティティに変換
+            $post->note2 = htmlentities($post->note2, ENT_QUOTES, 'UTF-8');   //名前付きエンティティを持つ文字をHTMLエンティティに変換
+            $post->note2 = str_replace(" ", "&#032;", $post->note2);   //半角スペースをHTMLエンティティに変換
+            $post->note3 = htmlentities($post->note3, ENT_QUOTES, 'UTF-8');   //名前付きエンティティを持つ文字をHTMLエンティティに変換
+            $post->note3 = str_replace(" ", "&#032;", $post->note3);   //半角スペースをHTMLエンティティに変換
         }
         //dd($posts);
         $tags = Tag::orderBy('name', 'asc')->get();
